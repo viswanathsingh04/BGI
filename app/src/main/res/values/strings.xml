@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BGI</string>
+    <string name="ghost_alert_message">Oops! Something went wrong \n Please try again.</string>
+    <string name="reload">Reload</string>
+    <string name="internet_title">Internet Connection Failed</string>
+    <string name="internet_message">No Internet connection was found. Please try again later</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="dialog_title">Exit</string>
+    <string name="dialog_message">Are you sure want to Exit?</string>
+
+</resources>

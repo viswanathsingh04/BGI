@@ -1,0 +1,22 @@
+{
+	"status": "MA200",
+	"data": [{
+		"id": "1",
+		"xxx": "Duplicate"
+	}, {
+		"id": "2",
+		"xxx": "Duplicate Name"
+	}, {
+		"id": "3",
+		"xxx": "Duplicate Party"
+	}, {
+		"id": "4",
+		"xxx": "Duplicate Comments"
+	}, {
+		"id": "5",
+		"xxx": "Duplicate Email"
+	}, {
+		"id": "6",
+		"xxx": "Duplicate Validation"
+	}]
+}
