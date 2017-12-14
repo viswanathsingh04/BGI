@@ -11,5 +11,5 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("sample.json")
-    Call<Sample_data> Getdata(@Query("dl") String mm);
+    Call<Sample_data> Getdata(@Query("dl") int mm);
 }

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,11 +72,12 @@ public class RecycleList extends Fragment implements View.OnClickListener {
     private void LoadData() {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.AppUrl.DASHBOARD_URL).addConverterFactory(GsonConverterFactory.create()).build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<Sample_data> call = apiInterface.Getdata(mm);
-
+        Call<Sample_data> call = apiInterface.Getdata(0);
+        Log.d("tag1", "message");
         call.enqueue(new Callback<Sample_data>() {
             @Override
             public void onResponse(@NonNull Call<Sample_data> call, @NonNull Response<Sample_data> response) {
+            Log.d("tag2", "message2");
                 if (response.isSuccessful()) {
                     Sample_data sd = response.body();
                     String getstatus = sd.getStatus();
