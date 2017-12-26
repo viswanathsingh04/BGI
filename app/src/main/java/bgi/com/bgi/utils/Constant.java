@@ -18,10 +18,10 @@ public class Constant {
     }
 
     public class AppUrl {
-        public static final String BASE_URL = "http://myapp.devalope.com/v1/api/";
+        public static final String BASE_URL = "http://192.168.43.150/";
         public static final String LOGIN = "http://www.google.com";
-        public static final String DASHBOARD_URL = "https://www.dropbox.com/s/q3voqjgrgkmj73f/";
-        public static final String DASHBOARD_SUBURL = "s/q3voqjgrgkmj73f/sample.json?dl=0";
+        public static final String DASHBOARD_URL = "https://drive.google.com/";
+        //public static final String DASHBOARD_URL = "https://www.dropbox.com/";
     }
 
     public class ApiParams {

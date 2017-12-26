@@ -32,10 +32,8 @@ public class SampleAdapter extends RecyclerView.Adapter<SampleAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //Sample_data sample_data1 = sample_data.get(position);
         Data data1 = sample_data.get(position);
         holder.txt_name.setText(data1.getXxx());
-
     }
 
     @Override

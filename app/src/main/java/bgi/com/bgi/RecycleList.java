@@ -20,6 +20,7 @@ import bgi.com.bgi.adapter.SampleAdapter;
 import bgi.com.bgi.bean.Data;
 import bgi.com.bgi.bean.Sample_data;
 import bgi.com.bgi.utils.Constant;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,6 +36,7 @@ public class RecycleList extends Fragment implements View.OnClickListener {
     RecyclerView recyclerView;
     List<Data> sample_data1;
     String mm = "0";
+    OkHttpClient.Builder client;
     SampleAdapter sampleAdapter;
 
     @Nullable
@@ -70,14 +72,16 @@ public class RecycleList extends Fragment implements View.OnClickListener {
     }
 
     private void LoadData() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.AppUrl.DASHBOARD_URL).addConverterFactory(GsonConverterFactory.create()).build();
+      Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.AppUrl.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<Sample_data> call = apiInterface.Getdata(0);
+
+        Call<Sample_data> call = apiInterface.Getdata();
+        //Call<Sample_data> call = apiInterface.Getdata("0");
         Log.d("tag1", "message");
         call.enqueue(new Callback<Sample_data>() {
             @Override
             public void onResponse(@NonNull Call<Sample_data> call, @NonNull Response<Sample_data> response) {
-            Log.d("tag2", "message2");
+                Log.d("tag2", response.message());
                 if (response.isSuccessful()) {
                     Sample_data sd = response.body();
                     String getstatus = sd.getStatus();

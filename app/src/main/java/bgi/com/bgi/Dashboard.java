@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import bgi.com.bgi.utils.Common;
 
@@ -42,6 +43,15 @@ public class Dashboard extends Common
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerview = navigationView.getHeaderView(0);
+        ImageView imageView = (ImageView) headerview.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddPhotoBottomDialogFragment add = AddPhotoBottomDialogFragment.newInstance();
+                add.show(getSupportFragmentManager(),"add_photo_dialog_fragment");
+            }
+        });
         navigationView.setNavigationItemSelectedListener(this);
         displaySelectedScreen(R.id.nav_gallery);
     }
