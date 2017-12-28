@@ -17,5 +17,16 @@
     <string name="bottom_sheet_option_gallery">Upload from Gallery</string>
     <string name="bottom_sheet_option_heading">Add Photo</string>
     <string name="bottom_sheet_option_remove_photo">Remove Photo</string>
+    <string name="title_activity_bottom">Menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="myname">Viswanath Pradap Singh A</string>
+    <string name="mailid">viswanathsingh04@gmail.om</string>
+    <string name="contact">+919600630577</string>
 
+    <string name="select_feedback_type">Select Feedback Type :</string>
+    <string name="enter_your_feedback">Enter your Feedback</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="submit">Submit</string>
 </resources>

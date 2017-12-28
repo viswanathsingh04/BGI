@@ -1,5 +1,6 @@
 package bgi.com.bgi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -49,7 +50,7 @@ public class Dashboard extends Common
             @Override
             public void onClick(View v) {
                 AddPhotoBottomDialogFragment add = AddPhotoBottomDialogFragment.newInstance();
-                add.show(getSupportFragmentManager(),"add_photo_dialog_fragment");
+                add.show(getSupportFragmentManager(), "add_photo_dialog_fragment");
             }
         });
         navigationView.setNavigationItemSelectedListener(this);
@@ -104,8 +105,20 @@ public class Dashboard extends Common
             case R.id.nav_camera:
                 fragment = new Frag1();
                 break;
-                case R.id.nav_gallery:
+            case R.id.nav_gallery:
                 fragment = new RecycleList();
+                break;
+            case R.id.nav_manage:
+                fragment = new RecycleList();
+                break;
+            case R.id.nav_slideshow:
+                startActivity(new Intent(getApplicationContext(), Bottom.class ));
+                break;
+            case R.id.about:
+                startActivity(new Intent(getApplicationContext(), Aboutus.class));
+                break;
+            case R.id.feedback:
+                startActivity(new Intent(getApplicationContext(), Feedback.class));
                 break;
         }
         //replacing the fragment

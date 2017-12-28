@@ -1,6 +1,7 @@
 package bgi.com.bgi;
 
 import bgi.com.bgi.bean.Sample_data;
+import bgi.com.bgi.bean.Storelist;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -9,12 +10,12 @@ import retrofit2.http.GET;
  */
 
 public interface ApiInterface {
-    //@GET("s/q3voqjgrgkmj73f/sample.json?dl=0")
-    //Call<Sample_data> Getdata();
-
-    //@GET("file/d/0Bx1jhhjOSjVjNjNsaHFkYlJRX00/view?usp=sharing")
-    @GET("sample.json")
-     Call<Sample_data> Getdata(
+    @GET("json/sample.json")
+    Call<Sample_data> Getdata(
             //@Query("usp") String mm
+    );
+
+    @GET("json/list.json")
+    Call<Storelist> GetList(
     );
 }

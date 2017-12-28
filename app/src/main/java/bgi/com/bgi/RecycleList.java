@@ -1,5 +1,6 @@
 package bgi.com.bgi;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -72,9 +73,18 @@ public class RecycleList extends Fragment implements View.OnClickListener {
     }
 
     private void LoadData() {
-      Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.AppUrl.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.AppUrl.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-
+        // Set up progress before call
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(getActivity());
+        progressDoalog.setMax(100);
+        progressDoalog.setMessage("Its loading....");
+        //progressDoalog.setTitle("ProgressDialog bar example");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        //progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        // show it
+        progressDoalog.show();
         Call<Sample_data> call = apiInterface.Getdata();
         //Call<Sample_data> call = apiInterface.Getdata("0");
         Log.d("tag1", "message");
@@ -96,6 +106,8 @@ public class RecycleList extends Fragment implements View.OnClickListener {
                         }
                         sampleAdapter.notifyDataSetChanged();
                     }
+                    progressDoalog.dismiss();
+                    Log.v("this", "Yes!");
                     System.out.println("ArraySize" + sample_data1.size());
                 } catch (Exception e) {
                     e.getStackTrace();
@@ -105,6 +117,8 @@ public class RecycleList extends Fragment implements View.OnClickListener {
             @Override
             public void onFailure(@NonNull Call<Sample_data> call, Throwable t) {
                 t.getStackTrace();
+                progressDoalog.dismiss();
+                Log.v("this", "No Response!");
             }
         });
     }
