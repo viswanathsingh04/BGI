@@ -7,5 +7,9 @@
     <color name="ghost_color">#E8DBC5</color>
     <color name="ghost_txt_color">#C4A575</color>
     <color name="ghost_btn_bg">#B69E78</color>
+    <color name="color_skype1">#ed3f3f</color>
+    <color name="color_blogger">#e1c238</color>
+    <color name="color_gPlus">#34dee1</color>
+    <color name="color_whatsApp">#36b74e</color>
 
 </resources>

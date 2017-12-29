@@ -7,13 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Bottom extends AppCompatActivity {
 
-    private TextView mTextMessage;
     FrameLayout message;
+    BottomNavigationView navigation;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -22,18 +21,13 @@ public class Bottom extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Fragment fragment = new StoreData();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.message, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
-                    //mTextMessage.setText(R.string.title_home);
+                    changeFragment(0);
                     return true;
                 case R.id.navigation_dashboard:
                     Toast.makeText(Bottom.this, "Clicked Navigation Dashboard option...", Toast.LENGTH_SHORT).show();
-                    //mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     Toast.makeText(Bottom.this, "Great!!! You Clicked Navigation Notification Menu...", Toast.LENGTH_SHORT).show();
-                    //mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -44,11 +38,24 @@ public class Bottom extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom);
-
-        //mTextMessage = (TextView) findViewById(R.id.message);
+        changeFragment(0);
         message = (FrameLayout) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    private void changeFragment(int position) {
+
+        Fragment newFragment = null;
+        if (position == 0) {
+            newFragment = new StoreData();
+        } else if (position % 2 != 0) {
+            newFragment = new StoreData();
+        } else {
+            newFragment = new StoreData();
+        }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.message, newFragment).commit();
     }
 
 }
