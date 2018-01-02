@@ -21,6 +21,7 @@ public class Constant {
         public static final String BASE_URL = "http://vtake.000webhostapp.com/";
         public static final String LOGIN = "http://www.google.com";
         public static final String DASHBOARD_URL = "https://drive.google.com/";
+        public static final String PICKZY = "http://temp1.pickzy.com/";
         //public static final String DASHBOARD_URL = "https://www.dropbox.com/";
     }
 

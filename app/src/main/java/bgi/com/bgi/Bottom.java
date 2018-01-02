@@ -24,9 +24,11 @@ public class Bottom extends AppCompatActivity {
                     changeFragment(0);
                     return true;
                 case R.id.navigation_dashboard:
+                    changeFragment(1);
                     Toast.makeText(Bottom.this, "Clicked Navigation Dashboard option...", Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_notifications:
+                    changeFragment(2);
                     Toast.makeText(Bottom.this, "Great!!! You Clicked Navigation Notification Menu...", Toast.LENGTH_SHORT).show();
                     return true;
             }
@@ -50,7 +52,7 @@ public class Bottom extends AppCompatActivity {
         if (position == 0) {
             newFragment = new StoreData();
         } else if (position % 2 != 0) {
-            newFragment = new StoreData();
+            newFragment = new ListPickzy();
         } else {
             newFragment = new StoreData();
         }

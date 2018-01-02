@@ -1,5 +1,6 @@
 package bgi.com.bgi;
 
+import bgi.com.bgi.bean.Main;
 import bgi.com.bgi.bean.Sample_data;
 import bgi.com.bgi.bean.Storelist;
 import retrofit2.Call;
@@ -18,4 +19,7 @@ public interface ApiInterface {
     @GET("json/list.json")
     Call<Storelist> GetList(
     );
+
+    @GET("interview_pickzy/interview.json")
+    Call<Main> GetPickzy();
 }
